@@ -51,6 +51,7 @@ function customize_error_handler()
 {
     if (!is_null($error = error_get_last())) {
         Log::error('程序意外终止', $error);
+        
         Message::send('可能存在错误，这边收集到的错误信息为：' . json_encode($error, JSON_UNESCAPED_UNICODE), '主人，程序意外终止');
     }
 }
